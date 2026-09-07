@@ -69,10 +69,11 @@ export default defineConfig({
     // },
   ],
 
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  /* Start the real server (built client baked in) before running tests. */
+  webServer: {
+    command: 'docker compose up --build',
+    url: 'http://127.0.0.1:8000/healthz',
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+  },
 });
