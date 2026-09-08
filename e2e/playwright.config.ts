@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import path from 'node:path';
 
 /**
  * Read environment variables from file.
@@ -12,7 +13,6 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './e2e',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -72,11 +72,15 @@ export default defineConfig({
   /* Start the real server (built client baked in) before running tests. */
   webServer: {
     command: 'docker compose up --build',
+    // This config lives in e2e/, but docker-compose.yml is at the repo root —
+    // Playwright's default cwd for the spawned process is the config's own
+    // directory, so this must be pointed back explicitly.
+    cwd: path.resolve(__dirname, '..'),
     url: 'http://127.0.0.1:8000/healthz',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
 
-  globalTeardown: './e2e/global-teardown.ts'
+  globalTeardown: './global-teardown.ts'
   
 });
