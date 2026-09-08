@@ -1,26 +1,10 @@
 {
-  "name": "p-swamp",
+  "name": "p-swamp-e2e",
   "version": "1.0.0",
-  "description": "This repo contains a Python package for enabling development and testing of WAMPAC applications. The code is based on developments in the research project [NEWEPS](https://ri.diva-portal.org/smash/record.jsf?pid=diva2%3A1933825&dswid=2773), and is described in this paper:",
-  "main": "index.js",
-  "directories": {
-    "doc": "doc",
-    "example": "examples",
-    "test": "tests"
-  },
+  "description": "Playwright end-to-end browser tests for the p-SWAMP client-server stack.",
+  "private": true,
   "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Knut-Aage-Hofseth/p-SWAMP.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Knut-Aage-Hofseth/p-SWAMP/issues"
-  },
-  "homepage": "https://github.com/Knut-Aage-Hofseth/p-SWAMP#readme",
   "devDependencies": {
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.4.1"
