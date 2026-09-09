@@ -1,0 +1,12 @@
+{
+  "name": "p-swamp-e2e",
+  "version": "1.0.0",
+  "description": "Playwright end-to-end browser tests for the p-SWAMP client-server stack.",
+  "private": true,
+  "scripts": {},
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.4.1"
+  }
+}

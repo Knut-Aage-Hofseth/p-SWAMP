@@ -48,7 +48,9 @@ export function ReferenceSubappPage() {
         {/* The server-owned state, or the status banner in its place. */}
         <div className="flex min-h-[152px] items-center justify-center">
           {connected && state ? (
-            <span className="text-6xl font-bold tabular-nums">{state.count}</span>
+            <span role="status" aria-label="Bump count" className="text-6xl font-bold tabular-nums">
+              {state.count}
+            </span>
           ) : (
             <Alert
               variant={status.kind === 'offline' && status.isError ? 'destructive' : 'default'}
